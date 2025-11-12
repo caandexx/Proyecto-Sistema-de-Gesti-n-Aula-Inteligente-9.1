@@ -47,10 +47,10 @@
 
                     <div class="mb-3">
                         <label for="color" class="form-label text-aesthetic">🎨 Color de la Materia</label>
-                        <div class="color-picker d-flex gap-2">
+                        <div class="color-picker d-flex gap-2 align-items-center">
                             <input type="color" class="form-control-color" id="color" name="color" value="{{ $subject->color }}" 
                                    style="width: 60px; height: 45px; border: none; border-radius: 10px; cursor: pointer;">
-                            <small class="text-muted align-self-center">Color actual: {{ $subject->color }}</small>
+                            <small class="text-muted">Color actual: {{ $subject->color }}</small>
                         </div>
                     </div>
 
@@ -67,7 +67,9 @@
                                 </label>
                             </div>
                             @empty
-                            <p class="text-muted">No hay docentes registrados. <a href="{{ route('teachers.create') }}">Agregá docentes primero</a></p>
+                            <p class="text-muted">No hay docentes registrados. 
+                                <a href="{{ route('teachers.create') }}" class="text-decoration-none">Agregá docentes primero</a>
+                            </p>
                             @endforelse
                         </div>
                     </div>

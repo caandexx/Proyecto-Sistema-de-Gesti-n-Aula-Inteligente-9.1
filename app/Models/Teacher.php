@@ -1,4 +1,5 @@
 <?php
+// app/Models/Teacher.php
 
 namespace App\Models;
 
@@ -11,15 +12,16 @@ class Teacher extends Model
 
     protected $fillable = [
         'name',
-        'email', 
-        'phone',
+        'email',
         'specialty',
-        'status',
-        'bio',
-        'profile_picture'
+        'phone'
     ];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    /**
+     * Relación muchos a muchos con Subject
+     */
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class, 'subject_teacher');
+    }
 }
